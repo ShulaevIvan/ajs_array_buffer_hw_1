@@ -1,7 +1,7 @@
-class ArrayBufferConverter {
-  constructor() {
+export default class ArrayBufferConverter {
+  constructor(data) {
     this.bufer = undefined;
-    this.data = '{"data":{"user":{"id":1,"name":"Hitman","level":10}}}';
+    this.data = data;
   }
 
   getBuffer() {
@@ -30,7 +30,8 @@ class ArrayBufferConverter {
   }
 }
 
-const test = new ArrayBufferConverter();
+const test = new ArrayBufferConverter('{"data":{"user":{"id":1,"name":"Hitman","level":10}}}');
 const data = test.getBuffer();
+console.log(data);
 test.load(data);
 console.log(test.toString(data));
